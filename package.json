@@ -1,0 +1,21 @@
+{
+  "name": "plumb",
+  "version": "1.0.0",
+  "description": "plumb 研究",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --config build/webpack.conf.js",
+    "start": "npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "halvee",
+  "license": "ISC",
+  "dependencies": {
+    "html-webpack-plugin": "^4.0.4",
+    "webpack": "^4.42.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
