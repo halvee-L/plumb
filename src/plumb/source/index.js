@@ -54,6 +54,17 @@ class RectSource extends Base {
     this.initAnchor(options);
     this.refresh();
   }
+  copy() {
+    let copySource = new RectSource({ ...this.config, x: this.x, y: this.y });
+
+    copySource.anchor = this.anchor.map((ac) => {
+      let copyac = ac.copy();
+      copyac.source = copySource;
+      return copyac;
+    });
+
+    return copySource;
+  }
   addAnchor(anchor) {
     anchor.__render = this.__render;
     this.anchor.push(anchor);

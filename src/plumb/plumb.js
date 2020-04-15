@@ -2,8 +2,8 @@ import SVGRender from "./render/SVGRender";
 import Connentor from "./source/connector";
 export default class Plumb {
   constructor(options) {
-    this.render = new SVGRender(options);
-
+    this.render = options.render || new SVGRender(options);
+    this.render.mount(options.el);
     this.sourceList = [];
 
     this.anchorList = [];

@@ -39,7 +39,6 @@ export default class Shape extends Emitter {
     paths.push(["L", _shape.width, _shape.height]);
     paths.push(["L", 0, _shape.height]);
     paths.push(["Z"]);
-
     return paths;
   }
   getCircle() {

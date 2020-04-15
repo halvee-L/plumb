@@ -1,7 +1,7 @@
 import Plumb from "./plumb";
 
 window.onload = function () {
-  let plumbInst = Plumb.init({ el: document.getElementById("app") });
+  let plumbInst = Plumb.init({ el: document.getElementById("container_svg") });
 
   window.plumbInst = plumbInst;
 
@@ -12,7 +12,7 @@ window.onload = function () {
     y: 100,
     borderColor: "red",
     borderWidth: 2,
-    backgroundColor: "rgba(0,0,0,0.2)",
+    backgroundColor: "rgba(0,0,0,0.1)",
     borderRaduis: 5,
     anchor: ["top", { position: "right", id: "source-right" }],
   });
@@ -24,11 +24,11 @@ window.onload = function () {
   let source = new Plumb.RectSource({
     width: 100,
     height: 100,
-    x: 500,
-    y: 500,
+    x: 300,
+    y: 300,
     borderColor: "red",
     borderWidth: 2,
-    backgroundColor: "rgba(0,0,0,0.2)",
+    backgroundColor: "rgba(0,0,0,0.1)",
     borderRaduis: 5,
     anchor: [
       {
@@ -49,5 +49,20 @@ window.onload = function () {
 
   plumbInst.add(source);
 
-  // plumbInst.connect("source-right", "target-bottom");
+  plumbInst.connect("source-right", "target-bottom");
+
+  let plumbCanvas = Plumb.init({
+    el: document.getElementById("container_canvas"),
+    render: new Plumb.CanvasRender({
+      width: 800,
+      height: 800,
+    }),
+  });
+
+  plumbCanvas.add(target.copy());
+  plumbCanvas.add(source.copy());
+
+  plumbCanvas.connect("source-right", "target-bottom");
+
+  window.plumbCanvas = plumbCanvas;
 };

@@ -1,17 +1,8 @@
 import { util } from "../util/Helper";
 import { addEventListener, removeListener, removeElement } from "../util/Dom";
 import Emitter from "../util/Emitter";
+import RenderBase from "./RenderBase";
 const parseAuto = (v, unit = "") => (v ? v + unit : "100%");
-
-const stringifyCss = (options) => {
-  let cssText = [];
-  cssText.push("width:" + parseAuto(options.width));
-
-  cssText.push("height:" + parseAuto(options.height));
-
-  cssText.push("position:relative");
-  return cssText.join(";");
-};
 
 const svgFunctionStrigify = (path) => {
   switch (path[0]) {
@@ -46,12 +37,6 @@ const setStyle = (el, key, val) => {
     el.style[key] = val;
     el.style["__" + key] = val;
   }
-};
-
-const createContainer = function (options) {
-  let $container = document.createElement("div");
-  $container.style.cssText = stringifyCss(options);
-  return $container;
 };
 
 const updatePosition = ($el, shape) => {
@@ -106,13 +91,9 @@ const createShapeFactory = function (shape) {
   }
 };
 
-export default class SvgRender {
+export default class SvgRender extends RenderBase {
   constructor(options) {
-    this.$contaner = createContainer(options);
-    if (options.el) {
-      options.el.appendChild(this.$contaner);
-    }
-    this.shapes = [];
+    super(options);
   }
   bindEvent(shape) {
     let event = shape;
@@ -134,11 +115,9 @@ export default class SvgRender {
     if (!shape.el) {
       shape.el = createShapeFactory(shape);
       shape.dirty();
+      this.bindEvent(shape); // todo
     }
-    if (this.shapes.indexOf(shape) > -1) return shape;
-    this.bindEvent(shape);
-    this.shapes.push(shape);
-    return shape;
+    return super.add(shape);
   }
   remove(shape) {
     let index = this.shapes.indexOf(shape);

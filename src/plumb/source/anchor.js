@@ -14,6 +14,9 @@ export default class Anchor extends Base {
     this.config = options;
     this.connectorList = [];
   }
+  copy() {
+    return new Anchor({ ...this.config, x: this.x, y: this.y });
+  }
   setBasePosition(x, y) {
     let [ox, oy] = this.config.position;
     this.x = x + ox;
@@ -32,6 +35,7 @@ export default class Anchor extends Base {
     let [sx, sy] = [0, 0];
 
     let mouseDown = (e) => {
+      e.stopPropagation();
       tempAnchor = new Anchor({
         type: "circle",
         x: this.x,
