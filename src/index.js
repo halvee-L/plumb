@@ -1,4 +1,5 @@
 import Plumb from "./plumb";
+import ClickAnimation from "./click-animation";
 
 window.onload = function () {
   let plumbInst = Plumb.init({ el: document.getElementById("container_svg") });
@@ -65,4 +66,6 @@ window.onload = function () {
   plumbCanvas.connect("source-right", "target-bottom");
 
   window.plumbCanvas = plumbCanvas;
+
+  new ClickAnimation(document.getElementsByClassName("click-animation")[0]);
 };

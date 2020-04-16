@@ -9,6 +9,7 @@
         canvasRender
       </div>
     </div>
+    <canvas class="click-animation"></canvas>
   </body>
 </html>
 
@@ -23,5 +24,14 @@
     height: 100%;
     border: 1px solid red;
     display: inline-block;
+  }
+  .click-animation {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+    pointer-events: none;
   }
 </style>
