@@ -30,7 +30,7 @@
   window.MIN_APEXX = 3;
   window.MAX_APEXX = 30;
   window.MIN_APEXY = 10;
-  window.MAX_APEXy = 30;
+  window.MAX_APEXY = 30;
 
   window.ANDIMATE_STEP = 1.8;
 
@@ -38,7 +38,7 @@
     var apexX =
       x +
       (random(0, 10) > 5 ? 1 : -1) * random(window.MIN_APEXX, window.MAX_APEXX);
-    var apexY = y - random(MIN_APEXY, MAX_APEXy);
+    var apexY = y - random(window.MIN_APEXY, window.MAX_APEXY);
     var a = (apexY - y) / Math$pow(x - apexX, 2);
     var b = -2 * apexX * a;
     var c = a * Math$pow(apexX, 2) + apexY;
