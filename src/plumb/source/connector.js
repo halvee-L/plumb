@@ -74,8 +74,8 @@ export default class Connector extends Base {
         type: "polyline",
         shape: this.getShape(),
         style: {
-          strokeWidth: 2,
-          strokeColor: "red",
+          strokeWidth: 1,
+          strokeColor: "gray",
         },
       })
     );

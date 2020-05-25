@@ -11,9 +11,9 @@ window.onload = function () {
     height: 100,
     x: 100,
     y: 100,
-    borderColor: "red",
+    borderColor: "blue",
     borderWidth: 2,
-    backgroundColor: "rgba(0,0,0,0.1)",
+    // backgroundColor: "rgba(0,0,0,0.1)",
     borderRaduis: 5,
     anchor: ["top", { position: "right", id: "source-right" }],
   });
@@ -27,9 +27,9 @@ window.onload = function () {
     height: 100,
     x: 300,
     y: 300,
-    borderColor: "red",
+    borderColor: "blue",
     borderWidth: 2,
-    backgroundColor: "rgba(0,0,0,0.1)",
+    // backgroundColor: "rgba(0,0,0,0.1)",
     borderRaduis: 5,
     anchor: [
       {
@@ -40,9 +40,7 @@ window.onload = function () {
         id: "target-bottom",
         shape: {
           type: "rect",
-          borderColor: "blue",
-          borderWidth: "1",
-          backgroundColor: "blue",
+          backgroundColor: "rgb(68,85,102)",
         },
       },
     ],

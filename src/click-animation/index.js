@@ -100,6 +100,7 @@
       render(canvas);
     });
   };
+
   return function (canvas) {
     this.canvas = canvas;
     var ctx = canvas.getContext("2d");

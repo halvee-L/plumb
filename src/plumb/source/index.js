@@ -11,9 +11,9 @@ const ANCHOR_DEFAULT_SHAPE = {
   type: "circle",
   width: 20,
   height: 20,
-  borderColor: "blue",
-  borderWidth: "1",
-  backgroundColor: "red",
+  // borderColor: "blue",
+  borderWidth: "0",
+  backgroundColor: "rgb(68,85,102)",
 };
 
 const transformPostion = (pos, shape, width, height) => {

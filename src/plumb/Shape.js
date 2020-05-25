@@ -41,6 +41,24 @@ export default class Shape extends Emitter {
     paths.push(["Z"]);
     return paths;
   }
+  /**
+   *
+   * 	
+      (rx ry x-axis-rotation large-arc-flag sweep-flag x y)+
+
+      rx ry 是椭圆的两个半轴的长度。
+
+      x-axis-rotation 是椭圆相对于坐标系的旋转角度，角度数而非弧度数。
+
+      large-arc-flag 是标记绘制大弧(1)还是小弧(0)部分。
+
+      sweep-flag 是标记向顺时针(1)还是逆时针(0)方向绘制。
+
+      x y 是圆弧终点的坐标。
+      ————————————————
+      版权声明：本文为CSDN博主「cuixiping」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+      原文链接：https://blog.csdn.net/cuixiping/article/details/79663611 
+   */
   getCircle() {
     let { shape, style } = this;
     let width = shape.width - style.strokeWidth * 2;
